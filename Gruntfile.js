@@ -306,7 +306,15 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'partials/{,*/}*.html',
+            'home/**/*.js',
+            'contact/**/*.js',
+            'property/**/*.js',
+            'home/**/*.html',
+            'contact/**/*.html',
+            'property/**/*.html',
+            'scripts/models/{,*/}*.json',
+            '*.json',
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
@@ -415,7 +423,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    'uglify',
+    // 'uglify',
     'rev',
     'usemin',
     'htmlmin'
