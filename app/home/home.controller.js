@@ -7,7 +7,7 @@ ppp.controller('HomeCtrl', function ($scope, $http) {
     $scope.home = [];
 
     // Get all data for the homepage
-    $http.get('/home/home.json').success(function(home) {
+    $http.get('../scripts/models/home.json').success(function(home) {
             $scope.loaded = true;
             $scope.home = home;
     }).error(function(statusText) {

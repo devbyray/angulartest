@@ -7,7 +7,7 @@ ppp.controller('PropertyCtrl', function ($scope, $http) {
     $scope.property = [];
 
     // Get all data for the propertypage
-    $http.get('/property/property.json').success(function(property) {
+    $http.get('../scripts/models/property.json').success(function(property) {
             $scope.loaded = true;
             $scope.property = property;
     }).error(function(statusText) {

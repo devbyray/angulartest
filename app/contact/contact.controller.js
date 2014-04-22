@@ -7,7 +7,7 @@ ppp.controller('ContactCtrl', function ($scope, $http) {
     $scope.contact = [];
 
     // Get all data for the contactpage
-    $http.get('/contact/contact.json').success(function(contact) {
+    $http.get('../scripts/models/contact.json').success(function(contact) {
             $scope.loaded = true;
             $scope.contact = contact;
     }).error(function(statusText) {
