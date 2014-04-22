@@ -97,22 +97,22 @@ module.exports = function (grunt) {
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
-      },
-      all: [
-        'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
-      ],
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
-      }
-    },
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc',
+    //     reporter: require('jshint-stylish')
+    //   },
+    //   all: [
+    //     'Gruntfile.js',
+    //     '<%= yeoman.app %>/scripts/{,*/}*.js'
+    //   ],
+    //   test: {
+    //     options: {
+    //       jshintrc: 'test/.jshintrc'
+    //     },
+    //     src: ['test/spec/{,*/}*.js']
+    //   }
+    // },
 
     // Empties folders to start fresh
     clean: {
@@ -130,19 +130,19 @@ module.exports = function (grunt) {
     },
 
     // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
+    // autoprefixer: {
+    //   options: {
+    //     browsers: ['last 1 version']
+    //   },
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '.tmp/styles/',
+    //       src: '{,*/}*.css',
+    //       dest: '.tmp/styles/'
+    //     }]
+    //   }
+    // },
 
     // Automatically inject Bower components into the app
     bowerInstall: {
@@ -203,90 +203,90 @@ module.exports = function (grunt) {
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
-    useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
-      options: {
-        dest: '<%= yeoman.dist %>',
-        flow: {
-          html: {
-            steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
-            },
-            post: {}
-          }
-        }
-      }
-    },
+    // useminPrepare: {
+    //   html: '<%= yeoman.app %>/index.html',
+    //   options: {
+    //     dest: '<%= yeoman.dist %>',
+    //     flow: {
+    //       html: {
+    //         steps: {
+    //           js: ['concat', 'uglifyjs'],
+    //           css: ['cssmin']
+    //         },
+    //         post: {}
+    //       }
+    //     }
+    //   }
+    // },
 
     // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: ['<%= yeoman.dist %>']
-      }
-    },
+    // usemin: {
+    //   html: ['<%= yeoman.dist %>/{,*/}*.html'],
+    //   css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+    //   options: {
+    //     assetsDirs: ['<%= yeoman.dist %>']
+    //   }
+    // },
 
     // The following *-min tasks produce minified files in the dist folder
-    cssmin: {
-      options: {
-        root: '<%= yeoman.app %>'
-      }
-    },
+    // cssmin: {
+    //   options: {
+    //     root: '<%= yeoman.app %>'
+    //   }
+    // },
 
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
+    // imagemin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/images',
+    //       src: '{,*/}*.{png,jpg,jpeg,gif}',
+    //       dest: '<%= yeoman.dist %>/images'
+    //     }]
+    //   }
+    // },
 
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
+    // svgmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/images',
+    //       src: '{,*/}*.svg',
+    //       dest: '<%= yeoman.dist %>/images'
+    //     }]
+    //   }
+    // },
 
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
+    // htmlmin: {
+    //   dist: {
+    //     options: {
+    //       collapseWhitespace: true,
+    //       collapseBooleanAttributes: true,
+    //       removeCommentsFromCDATA: true,
+    //       removeOptionalTags: true
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.dist %>',
+    //       src: ['*.html', 'views/{,*/}*.html'],
+    //       dest: '<%= yeoman.dist %>'
+    //     }]
+    //   }
+    // },
 
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
-    ngmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
+    // ngmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '.tmp/concat/scripts',
+    //       src: '*.js',
+    //       dest: '.tmp/concat/scripts'
+    //     }]
+    //   }
+    // },
 
     // Replace Google CDN references
     cdnify: {
@@ -308,6 +308,12 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'partials/{,*/}*.html',
+            'home/**/*.js',
+            'contact/**/*.js',
+            'property/**/*.js',
+            'home/**/*.html',
+            'contact/**/*.html',
+            'property/**/*.html',
             'scripts/models/{,*/}*.json',
             '*.json',
             'images/{,*/}*.{webp}',
@@ -338,8 +344,8 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
-        'svgmin'
+        // 'imagemin',
+        // 'svgmin'
       ]
     },
 
@@ -365,9 +371,9 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    concat: {
+      dist: {}
+    },
 
     // Test settings
     karma: {
@@ -410,18 +416,18 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'bowerInstall',
-    'useminPrepare',
+    // 'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
+    // 'autoprefixer',
     'concat',
-    'ngmin',
+    // 'ngmin',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
+    // 'cssmin',
+    // 'uglify',
     'rev',
-    'usemin',
-    'htmlmin'
+    // 'usemin',
+    // 'htmlmin'
   ]);
 
   grunt.registerTask('default', [
