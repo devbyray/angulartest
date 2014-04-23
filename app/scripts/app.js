@@ -21,6 +21,9 @@ ppp.config(function ($routeProvider) {
     .when('/contact', {
       templateUrl: 'contact/contact.html'
     })
+    .when('/weather', {
+      templateUrl: 'weather/weather.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
