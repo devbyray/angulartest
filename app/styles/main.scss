@@ -63,3 +63,35 @@ body {
 }
 
 @import 'content/forms';
+
+#svg { 
+    svg {
+      width: 195px;
+      height: 250px;
+      transition: ease 0.5s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    /*Logo Styles*/
+    .logo-text path, 
+    .outer-ring, 
+    .shave, 
+    .top-strip {
+     fill:#F1F1F2;
+    }
+    .top-eraser, 
+    .top-bar,
+    .bottom-bar, 
+    .tip  {
+      fill:url(#SVG-gradient);
+    }
+    .middle-bar, 
+    .bottom-eraser {
+      fill:#F16522;
+    }
+    .inner-shadow {
+     fill:#BBBDBF;
+    }
+}
