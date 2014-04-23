@@ -11,7 +11,7 @@ ppp.directive('ngSparkline', function() {
 		scope: {
 			ngCity: '@'
 		},
-		template: '<div class="sparkline"><input type="text" data-ng-model="ngCity"><button ng-click="showTemp()">Check {{ngCity}}</button><div ng-transclude></div><div class="graph"></div></div>',
+		template: '<div class="sparkline"><input type="text" data-ng-model="ngCity"><button ng-click="showTemp()">Check {{ngCity}}</button><div id="loader"></div><div ng-transclude></div><div class="graph"></div></div>',
 		controller: ['$scope', '$http', function($scope, $http) {
 
 
@@ -29,9 +29,11 @@ ppp.directive('ngSparkline', function() {
 			}
 
 			$scope.showTemp = function(){
-				$("svg.sparkline").remove();
-	            $scope.getTemp($scope.ngCity);
-	            console.log(url + $scope.ngCity);
+				$("svg.sparkline").fadeOut('800').delay(800).remove();
+				// $("#loader").append(getLoader());
+				$scope.getTemp($scope.ngCity);
+				// $("#loader").delay(300).slideUp('400');
+
 	        };
 		}],
 		link: function(scope, iElement, iAttrs, ctrl) {
@@ -63,6 +65,9 @@ ppp.directive('ngCity', function() {
 	}
 });
 
+function getLoader() {
+	return '<div id="fountainG"><div id="fountainG_1" class="fountainG"></div><div id="fountainG_2" class="fountainG"></div><div id="fountainG_3" class="fountainG"></div><div id="fountainG_4" class="fountainG"></div><div id="fountainG_5" class="fountainG"></div><div id="fountainG_6" class="fountainG"></div><div id="fountainG_7" class="fountainG"></div><div id="fountainG_8" class="fountainG"></div></div>';
+}
 
 var chartGraph = function(element, data, opts) {
 	var width = opts.width || 200,
