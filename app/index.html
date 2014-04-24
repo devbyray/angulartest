@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>AngularJS + D3.JS + OpenWeatherAPI</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -24,7 +24,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-include src='"partials/header.html"'></div>
+    <!-- <div class="container" ng-include src='"partials/header.html"'></div> -->
     <div class="container" ng-view=""></div>
     <div class="container" ng-include src='"partials/footer.html"'></div>
 
@@ -60,11 +60,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/libaries/d3.min.js"></script>
         <script src="scripts/app.js"></script>
-        <script src="scripts/directives/svg.directive.js"></script>
         <script src="home/home.controller.js"></script>
-        <script src="contact/contact.controller.js"></script>
-        <script src="property/property.controller.js"></script>
-        <script src="property/property.sparkline.directive.js"></script>
         <script src="weather/weather.controller.js"></script>
         <script src="weather/weather.directive.js"></script>
         <!-- endbuild -->

@@ -1,4 +1,6 @@
-AngularJS Test
+AngularJS + D3.JS + OpenWeatherAPI
 ===========
 
-Test for AngularJS stuff
+Custom AngularJS Directive
+
+Check the result here: http://raymonschouwenaar.github.io/angulartest/dist/#/
