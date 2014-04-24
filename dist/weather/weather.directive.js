@@ -3,7 +3,8 @@
 var ppp = angular.module('ppppropertiesApp');
 
 ppp.directive('ngSparkline', function() {
-	var url = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7&callback=JSON_CALLBACK&q="
+	var url = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7&callback=JSON_CALLBACK&q=";
+	var loader = '<div id="fountainG"><div id="fountainG_1" class="fountainG"></div><div id="fountainG_2" class="fountainG"></div><div id="fountainG_3" class="fountainG"></div><div id="fountainG_4" class="fountainG"></div><div id="fountainG_5" class="fountainG"></div><div id="fountainG_6" class="fountainG"></div><div id="fountainG_7" class="fountainG"></div><div id="fountainG_8" class="fountainG"></div></div>';
 	return {
 		restrict: 'AEC',
 		require: '^ngCity',
@@ -11,15 +12,17 @@ ppp.directive('ngSparkline', function() {
 		scope: {
 			ngCity: '@'
 		},
-		template: '<div class="sparkline"><input type="text" data-ng-model="ngCity"><button ng-click="showTemp()">Check {{ngCity}}</button><div id="loader"></div><div ng-transclude></div><div class="graph"></div></div>',
+		template: '<div class="sparkline"><input type="text" data-ng-model="ngCity"><button ng-click="showTemp()">Check {{ngCity}}</button><div ng-transclude></div><div ng-show="isLoading">'+ loader + '</div><div class="graph"></div></div>',
 		controller: ['$scope', '$http', function($scope, $http) {
 
 
 			$scope.getTemp = function(city) {
+				$scope.isLoading = true;
 				$http({
 						method: 'JSONP',
 						url: url + city
 					}).success(function(data) {
+						$scope.isLoading = false;
 						var weather = [];
 						angular.forEach(data.list, function(value){
 						weather.push(value);
@@ -30,11 +33,9 @@ ppp.directive('ngSparkline', function() {
 
 			$scope.showTemp = function(){
 				$("svg.sparkline").fadeOut('800').delay(800).remove();
-				// $("#loader").append(getLoader());
 				$scope.getTemp($scope.ngCity);
-				// $("#loader").delay(300).slideUp('400');
-
 	        };
+
 		}],
 		link: function(scope, iElement, iAttrs, ctrl) {
 			scope.getTemp(iAttrs.ngCity);
@@ -64,10 +65,6 @@ ppp.directive('ngCity', function() {
 		controller: function($scope) {}
 	}
 });
-
-function getLoader() {
-	return '<div id="fountainG"><div id="fountainG_1" class="fountainG"></div><div id="fountainG_2" class="fountainG"></div><div id="fountainG_3" class="fountainG"></div><div id="fountainG_4" class="fountainG"></div><div id="fountainG_5" class="fountainG"></div><div id="fountainG_6" class="fountainG"></div><div id="fountainG_7" class="fountainG"></div><div id="fountainG_8" class="fountainG"></div></div>';
-}
 
 var chartGraph = function(element, data, opts) {
 	var width = opts.width || 200,
