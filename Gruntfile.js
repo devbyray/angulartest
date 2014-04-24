@@ -105,7 +105,8 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/**/*.js'
+        '<%= yeoman.app %>/scripts/**/*.js',
+        '!<%= yeoman.app %>/scripts/libaries/{,*/}*.js'
       ],
       test: {
         options: {
@@ -372,9 +373,9 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    concat: {
+      dist: {}
+    },
 
     // Test settings
     karma: {
@@ -425,7 +426,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    // 'uglify',
+    'uglify',
     'rev',
     'usemin',
     'htmlmin'

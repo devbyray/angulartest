@@ -15,12 +15,6 @@ ppp.config(function ($routeProvider) {
     .when('/home', {
       templateUrl: 'home/home.html'
     })
-    .when('/property', {
-      templateUrl: 'property/property.html'
-    })
-    .when('/contact', {
-      templateUrl: 'contact/contact.html'
-    })
     .when('/weather', {
       templateUrl: 'weather/weather.html'
     })
