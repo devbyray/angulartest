@@ -372,9 +372,9 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    concat: {
+      dist: {}
+    },
 
     // Test settings
     karma: {
@@ -425,7 +425,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    // 'uglify',
+    'uglify',
     'rev',
     'usemin',
     'htmlmin'
